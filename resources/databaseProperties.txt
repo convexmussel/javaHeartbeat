@@ -1,0 +1,3 @@
+db_url=jdbc:mysql://84.245.14.131/weather_data?autoReconnect=true
+username=weat
+password=9ev!GR
