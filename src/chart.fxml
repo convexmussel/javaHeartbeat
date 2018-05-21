@@ -12,15 +12,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TableController">
    <children>
-      <LineChart fx:id="lineChart" layoutX="14.0" layoutY="14.0" prefHeight="638.0" prefWidth="1097.0">
+      <LineChart fx:id="lineChart" blendMode="DARKEN" cache="true" layoutX="14.0" layoutY="14.0" prefHeight="638.0" prefWidth="1097.0">
         <xAxis>
-          <CategoryAxis id="x-as" side="BOTTOM" />
+          <CategoryAxis id="x" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis id="y-as" prefHeight="359.0" prefWidth="25.0" side="LEFT" />
+          <NumberAxis id="y" prefHeight="359.0" prefWidth="25.0" side="LEFT" />
         </yAxis>
       </LineChart>
-      <ToggleButton layoutX="1172.0" layoutY="58.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Connect" />
+      <ToggleButton fx:id="ConnectB" layoutX="1172.0" layoutY="58.0" mnemonicParsing="false" onAction="#connectB" prefHeight="25.0" prefWidth="89.0" text="Connect" />
       <Button fx:id="tableB" layoutX="1172.0" layoutY="89.0" mnemonicParsing="false" onAction="#tableBpressed" prefHeight="25.0" prefWidth="89.0" text="Table" />
    </children>
 </AnchorPane>

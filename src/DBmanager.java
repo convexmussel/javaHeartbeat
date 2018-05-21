@@ -21,9 +21,10 @@ public class DBmanager {
      * Instantiates a new DBmanager.
      */
     protected DBmanager() {
-        if(!dbExists()) {
-            System.err.println(">>> DBManager: The database doesn't exist...");
-        }
+        System.out.println("Hallo");
+//        if(!dbExists()) {
+//            System.err.println(">>> DBManager: The database doesn't exist...");
+//        }
     }
 
     /**
@@ -38,40 +39,16 @@ public class DBmanager {
         return uniqueInstance;
     }
 
-    private Boolean dbExists() {
+    public Boolean dbExists() {
         Boolean exists = false;
-
-        Statement statement = null;
-        try {
-            if(connection == null) {
-                makeConnection();
-            }
-            System.out.println(connection);
-            statement = connection.createStatement();
-
-            // Use the database 'World'.
-            statement.executeQuery("Use weather_data");
-        }
-        catch (SQLException SQLexc) {
-            SQLexc.printStackTrace();
-        }
-        finally {
-            try {
-                if(statement != null) {
-                    statement.close();
-                    exists = true;
-                }
-            }
-            catch (SQLException SQLexc) {
-                SQLexc.printStackTrace();
-                statement = null;
-            }
+        if(connection == null) {
+           exists = makeConnection();
         }
         return exists;
     }
 
     // Method to make a connection to the database.
-    private void makeConnection() {
+    private Boolean makeConnection() {
         FileInputStream input = null;
 
         try {
@@ -93,24 +70,17 @@ public class DBmanager {
             // will generate a NullPointerException.
 
             System.out.println("Connection has been set up with the stored properties! YAHOO!");
+            return true;
+
         }
         catch (SQLException SQLexc) {
             System.err.println("Connection error occurred");
+            return false;
         }
         catch (Exception exc) {
             exc.printStackTrace();
         }
-        finally {
-            try {
-                if(input != null) {
-                    input.close();
-                }
-            }
-            catch (Exception exc) {
-                exc.printStackTrace();
-                return;   // REFACTOR THIS STATEMENT
-            }
-        }
+        return false;
     }
 
     /**
@@ -120,8 +90,16 @@ public class DBmanager {
         try {
             connection.close();
 
-            uniqueInstance = null;
-            connection = null;
+        }
+        catch (SQLException SQLexc) {
+            SQLexc.printStackTrace();
+        }
+    }
+
+    public void Open() {
+        try {
+            connection.close();
+
         }
         catch (SQLException SQLexc) {
             SQLexc.printStackTrace();
