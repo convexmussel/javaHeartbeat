@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TableController">
    <children>
-      <LineChart fx:id="lineChart" blendMode="DARKEN" cache="true" layoutX="14.0" layoutY="14.0" prefHeight="638.0" prefWidth="1097.0">
+      <LineChart fx:id="lineChart" alternativeColumnFillVisible="true" animated="false" blendMode="DARKEN" cache="true" layoutX="14.0" layoutY="14.0" legendSide="RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="638.0" prefWidth="1097.0" title="Heartbeat BPM">
         <xAxis>
           <CategoryAxis id="x" side="BOTTOM" />
         </xAxis>

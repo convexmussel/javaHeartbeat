@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.util.Observable;
 
 public class TableController  {
+
+
     //db connection class
     private DBmanager dBmanager;
     private XYChart.Series<String, Number> series = new XYChart.Series<>();
@@ -30,7 +32,6 @@ public class TableController  {
 
     private void init(){
         series.setName("heartbeat");
-        series.getData().add(new XYChart.Data<String, Number>("0",0));
 
     }
 
@@ -55,11 +56,19 @@ public class TableController  {
             ConnectB.setText("Connect");
             System.out.println("Disconnected");
         }
+
     }
 
 
     private void tester(){
-        series.getData().add(new XYChart.Data<String, Number>("5",60));
 
+        if(!lineChart.getData().contains(series)){
+            lineChart.getData().add(series);
+
+        }
+        series.getData().add(new XYChart.Data<String, Number>("5",60));
+        series.getData().add(new XYChart.Data<String, Number>("6",90));
+        series.getData().add(new XYChart.Data<String, Number>("200",1000));
+        series.getData().add(new XYChart.Data<String, Number>("100",1500));
     }
 }
